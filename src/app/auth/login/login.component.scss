@@ -1,0 +1,45 @@
+:host {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+form{
+  width: 300px;
+  .form-control{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    &:not(:last-child){
+      margin-bottom: 1rem;
+    }
+    input{
+      background-color: #212121;
+      border-color: rgb(135,116,225);
+    }
+  }
+  button{
+    width: 100%;
+    color: #ffffff;
+    background-color:rgb(135,116,225);
+  }
+
+  .signup{
+    margin-top: 1rem;
+    text-align: right;
+    a{
+      cursor: pointer;
+      color: rgb(135,116,225);
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  form {
+    width: 100%;
+    .signup{
+      text-align: center;
+    }
+  }
+}

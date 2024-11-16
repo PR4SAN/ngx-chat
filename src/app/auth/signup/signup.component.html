@@ -1,0 +1,20 @@
+<form [formGroup]="signupForm">
+  <div class="form-control">
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" formControlName="email">
+    <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
+      <p class="error" *ngIf="signupForm.get('email')?.errors?.['required']">Email is required</p>
+      <p class="error" *ngIf="signupForm.get('email')?.errors?.['email']">Please enter a valid email</p>
+    </div>
+  </div>
+  <div class="form-control">
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" formControlName="password">
+    <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+      <p class="error" *ngIf="signupForm.get('password')?.errors?.['required']">Password is required</p>
+      <p class="error" *ngIf="signupForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters</p>
+    </div>
+  </div>
+  <button type="submit" class="btn" [disabled]="signupForm.invalid" (click)="$event.preventDefault(); onSignup()">Signup</button>
+  <p class="signup"><a [routerLink]="['/auth/login']">Already have an account? Login </a></p>
+</form>
