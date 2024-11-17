@@ -1,27 +1,50 @@
-# AngularFirebaseChatApp
+# Angular Firebase Chat App Documentation
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
+## Setup Requirements
+ - Node.js version 22 or higher (if using nvm use ``` nvm use```)
+ - Angular CLI version 18
 
-## Development server
+## Installation Steps
+1. Clone the repository to your local machine.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+using HTTPS
+``git clone https://github.com/PR4SAN/ngx-chat.git
+``
 
-## Code scaffolding
+using SSH
+``
+git clone git@github.com:PR4SAN/ngx-chat.git
+``
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. Navigate to the project directory and install the required dependencies.
 
-## Build
+```
+cd ngx-chat
+npm install
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+3. Start the development server.
+```
+npm start
+```
 
-## Running unit tests
+### Features Implemented
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### Authentication
+- User registration and login functionality.
+- Profile image upload and display.
+- Logout functionality.
+#### Chat
 
-## Running end-to-end tests
+- User search functionality
+- Chat list with recent conversations
+- Last message preview
+- Message timestamps
+- Real-time message updates
+- Profile picture support
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+#### Search
+- Search users by display name
+- Search user by email
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
