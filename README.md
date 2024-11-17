@@ -1,3 +1,15 @@
+<style>
+r { color: Red }
+o { color: Orange }
+g { color: Green }
+</style>
+
+# <o>Demo Credentials<r>
+```
+  email: "demo@gmail.com"
+  password: "asdf1234"
+```
+
 # Angular Firebase Chat App Documentation
 
 ## Setup Requirements
