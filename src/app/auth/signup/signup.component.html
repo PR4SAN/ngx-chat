@@ -1,5 +1,12 @@
 <form [formGroup]="signupForm">
   <div class="form-control">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" formControlName="name">
+    <div *ngIf="signupForm.get('name')?.invalid && signupForm.get('name')?.touched">
+      <p class="error" *ngIf="signupForm.get('name')?.errors?.['required']">Name is required</p>
+    </div>
+  </div>
+  <div class="form-control">
     <label for="email">Email</label>
     <input type="email" name="email" id="email" formControlName="email">
     <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">

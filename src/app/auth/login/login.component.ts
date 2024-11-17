@@ -1,7 +1,10 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {CommonModule} from '@angular/common';
-import {RouterModule} from '@angular/router';
+import {Router, RouterModule} from '@angular/router';
+import {UserService} from '../service/user.service';
+import {HotToastService} from '@ngxpert/hot-toast';
+import {util} from '../../util/util';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +14,10 @@ import {RouterModule} from '@angular/router';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit {
-  private fb =  inject(FormBuilder)
+  private fb =  inject(FormBuilder);
+  private router = inject(Router);
+  private userService = inject(UserService);
+  private toastService = inject(HotToastService);
 
   loginForm!: FormGroup;
 
@@ -27,7 +33,16 @@ export class LoginComponent implements OnInit {
     if(!this.loginForm.valid){
       return;
     }
-    console.log(this.loginForm.value);
+    const {email, password} = this.loginForm.value;
+
+    this.userService.login(email, password).subscribe({
+      next: success => {
+        this.router.navigate(['/chat']);
+      },
+      error: error => {
+        this.toastService.error(util(error.code));
+      }
+    });
   }
 
 
