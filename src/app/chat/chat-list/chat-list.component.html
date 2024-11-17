@@ -1,1 +1,37 @@
-<p>chat-list works!</p>
+<div class="chat-list-header">
+  <div class="search-wrapper">
+    <input type="text" placeholder="Search users" [(ngModel)]="searchTerm" (input)="search()">
+    <div class="search-results">
+      <ng-container *ngIf="searchTerm.length > 0">
+        <div class="user-item" *ngFor="let user of searchResults" (click)="initiateChat(user)">
+          <img [src]="user.photoURL || 'assets/profile-placeholder.png'" alt="Profile">
+          <div class="user-info">
+            <span class="user-name">{{user.displayName}}</span>
+            <span class="user-email">{{user.email}}</span>
+          </div>
+        </div>
+
+        <div class="no-results" *ngIf="!isSearching && searchResults?.length === 0">
+          <p>No users found matching "{{searchTerm}}"</p>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <button class="settings-button" (click)="openSettings()">
+    <img src="/assets/settings.svg" alt="">
+  </button>
+</div>
+
+<ul class="chat-list">
+  <li *ngFor="let chat of userChats" [routerLink]="['/chat', chat.id]" routerLinkActive="active">
+    <a class="user-details">
+      <div class="chat-list-user-image">
+        <img [src]="chat.photoURL || 'assets/profile-placeholder.png'" alt="">
+      </div>
+      <div class="chat-list-user-message">
+        <p class="chat-list-user-name"> <span>{{chat.displayName}}</span> <span class="date">{{chat.lastMessage?.timestamp | date:'dd/MM/yy'}}</span></p>
+        <p class="chat-list-user-last-message">{{chat.lastMessage?.content}}</p>
+      </div>
+    </a>
+  </li>
+</ul>

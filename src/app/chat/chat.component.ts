@@ -1,15 +1,14 @@
-import { Component } from '@angular/core';
-import {RouterModule} from '@angular/router';
+import {Component} from '@angular/core';
 import {ChatListComponent} from './chat-list/chat-list.component';
-import {ChatDetailsComponent} from './chat-details/chat-details.component';
+import {RouterModule} from '@angular/router';
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-chat',
   standalone: true,
-  imports: [RouterModule, ChatListComponent, ChatDetailsComponent],
+  imports: [ChatListComponent, RouterModule, CommonModule],
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.scss'
 })
-export class ChatComponent {
+export class ChatComponent {}
 
-}

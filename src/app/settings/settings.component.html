@@ -1,0 +1,17 @@
+<div class="settings-header">
+  <h1>Settings</h1>
+  <button class="btn btn-close" (click)="dialogRef.close()">X</button>
+</div>
+<div class="settings-profile">
+  <ng-container *ngIf="userService.$currentUser | async as user">
+    <div class="profile-pic-container">
+      <img [src]="user?.photoURL ?? 'assets/profile-placeholder.png'"
+           alt="Profile Picture"
+      >
+      <div class="hover-overlay" (click)="profilePicInput.click()">Change Profile Picture</div>
+    </div>
+    <p class="name">{{ user?.displayName }}</p>
+    <input type="file" hidden id="file" #profilePicInput (change)="uploadImage($event)">
+  </ng-container>
+</div>
+<button class="btn" (click)="logout()">Logout</button>

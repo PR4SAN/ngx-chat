@@ -1,5 +1,22 @@
 .chat-container{
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 400px 1fr;
   height: 100vh;
+  max-width: 1044px;
+  margin: 0 auto;
+  position: relative;
+}
+.chat-bg {
+  background-color: #222E35;
+  position: relative;
+  &::after {
+    position: absolute;
+    content: 'No conversation selected, select a conversation to start chatting';
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    width: fit-content;
+    text-align: center;
+    z-index: 1;
+  }
 }

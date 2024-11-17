@@ -1,1 +1,32 @@
-<p>chat-details works!</p>
+  <div class="chat-container">
+    <div class="chat-header">
+      <ng-container *ngIf="chatUser$ | async as chatUser">
+        <img [src]="chatUser?.photoURL || 'assets/profile-placeholder.png'" alt="Profile">
+        <div>
+          <p class="user-name">{{ chatUser.displayName }}</p>
+          <p class="user-email">{{chatUser.email}}</p>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="messages-container" #messagesContainer>
+      <div *ngFor="let message of messages"
+           [ngClass]="{'message': true, 'own-message': message.senderId === chatService.auth.currentUser?.uid}">
+        <div class="message-content">
+          {{message.content}}
+        </div>
+        <div class="message-time">
+          {{message.timestamp | date:'shortTime'}}
+        </div>
+      </div>
+    </div>
+
+    <div class="input-container">
+      <input type="text"
+             [(ngModel)]="newMessage"
+             (keyup.enter)="sendMessage()"
+             placeholder="Type a message...">
+      <button (click)="sendMessage()">Send</button>
+    </div>
+  </div>
+
