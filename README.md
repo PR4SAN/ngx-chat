@@ -1,10 +1,4 @@
-<style>
-r { color: Red }
-o { color: Orange }
-g { color: Green }
-</style>
-
-# <o>Demo Credentials<r>
+# Demo Credentials
 ```
   email: "demo@gmail.com"
   password: "asdf1234"
